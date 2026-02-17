@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthodox Daily Inspiration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🕦 Orthodox Daily Inspiration</h1>
+            <p class="subtitle">Find Your Daily Spiritual Guidance</p>
+            <p class="date" id="current-date"></p>
+        </header>
+
+        <main>
+            <section class="card bible-card">
+                <div class="card-header">
+                    <h2>📖 Bible Verse</h2>
+                </div>
+                <div class="card-content">
+                    <p class="verse-text" id="verse-text"></p>
+                    <p class="verse-ref" id="verse-ref"></p>
+                </div>
+            </section>
+
+            <section class="card father-card">
+                <div class="card-header">
+                    <h2>🙏 Church Father Quote</h2>
+                </div>
+                <div class="card-content">
+                    <p class="quote-text" id="quote-text"></p>
+                    <p class="quote-author" id="quote-author"></p>
+                </div>
+            </section>
+
+            <section class="card saints-card">
+                <div class="card-header">
+                    <h2>⛪ Saints Venerated Today</h2>
+                </div>
+                <div class="card-content">
+                    <ul id="saints-list" class="saints-list"></ul>
+                </div>
+            </section>
+
+            <button id="refresh-btn" class="refresh-btn">Get Tomorrow's Inspiration</button>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Orthodox Daily Inspiration | May God Bless You</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
