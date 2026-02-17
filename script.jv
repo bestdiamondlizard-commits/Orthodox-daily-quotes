@@ -1,0 +1,206 @@
+// Data: Bible verses (expanded collection)
+const bibleVerses = [
+    {
+        text: "For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope.",
+        reference: "Jeremiah 29:11"
+    },
+    {
+        text: "Blessed is the man who trusts in the Lord, whose trust is the Lord.",
+        reference: "Psalm 40:4"
+    },
+    {
+        text: "Fear not, for I am with you; be not dismayed, for I am your God; I will strengthen you, I will help you, I will uphold you with my righteous right hand.",
+        reference: "Isaiah 41:10"
+    },
+    {
+        text: "Come to me, all you who are weary and burdened, and I will give you rest.",
+        reference: "Matthew 11:28"
+    },
+    {
+        text: "I can do all things through Christ who strengthens me.",
+        reference: "Philippians 4:13"
+    },
+    {
+        text: "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.",
+        reference: "John 3:16"
+    },
+    {
+        text: "The Lord is my light and my salvation - whom shall I fear? The Lord is the stronghold of my life - of whom shall I be afraid?",
+        reference: "Psalm 27:1"
+    },
+    {
+        text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
+        reference: "Proverbs 3:5-6"
+    },
+    {
+        text: "Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid.",
+        reference: "John 14:27"
+    },
+    {
+        text: "Therefore, if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new.",
+        reference: "2 Corinthians 5:17"
+    }
+];
+
+// Data: Church Father quotes
+const churchFatherQuotes = [
+    {
+        text: "The greatest tragedy in life is not death, but a life without purpose.",
+        author: "St. Basil the Great"
+    },
+    {
+        text: "Pray as if everything depends on God. Work as if everything depends on you.",
+        author: "St. Augustine"
+    },
+    {
+        text: "An unexamined life is not worth living.",
+        author: "Socrates (Quoted by St. Justin Martyr)"
+    },
+    {
+        text: "The way to Heaven is hidden behind humility. Those who think they're finding the way to Heaven have already gone the wrong way.",
+        author: "St. John of the Ladder"
+    },
+    {
+        text: "Christ is our joy, and where Christ is, there is victory.",
+        author: "St. John Chrysostom"
+    },
+    {
+        text: "Acquire a peaceful spirit and thousands around you will be saved.",
+        author: "St. Seraphim of Sarov"
+    },
+    {
+        text: "The purpose of our Christian life is to restore our soul to the way God designed it, since we have strayed far from it.",
+        author: "St. Maximus the Confessor"
+    },
+    {
+        text: "Do not lose your inward peace for anything whatsoever, even if the whole external world seems upset.",
+        author: "St. Francis de Sales"
+    },
+    {
+        text: "God judges not by the nature of our works but by the intention with which they are performed.",
+        author: "St. Ignatius of Loyola"
+    },
+    {
+        text: "The passions are cured by their opposite virtues, but chiefly by the practice of love.",
+        author: "St. Thalassios the Libyan"
+    }
+];
+
+// Data: Saints by date (Orthodox Church calendar)
+const saintsByDate = {
+    "02-17": [ // February 17
+        "St. Theodore of Sykeon",
+        "St. Simeon of Myra",
+        "St. Alexi, Man of God"
+    ],
+    "02-18": [
+        "St. Leo of Rome (Pope Leo I)",
+        "St. Agathangel"
+    ],
+    "02-19": [
+        "St. John, Metropolitan of Moscow",
+        "Sts. Archippus, Philemon, and Apphia",
+        "St. Eulogius of Alexandria"
+    ],
+    "02-20": [
+        "St. Leo, Bishop of Catania",
+        "St. Parthenius and St. Calogerus",
+        "St. Claudius"
+    ],
+    "02-21": [
+        "St. Timothy of Ephesus",
+        "St. Eustathius of Serbia",
+        "St. Porphyrius"
+    ],
+    "02-22": [
+        "St. Cecilia",
+        "St. Erastes",
+        "Martyrs of the Kherson Persecution"
+    ],
+    "02-23": [
+        "St. Polycarp of Smyrna",
+        "St. Eucherius",
+        "St. Severinus"
+    ],
+    "02-24": [
+        "St. Gregorios the Dialogist",
+        "St. Alexios",
+        "St. Kyriake"
+    ],
+    "02-25": [
+        "St. Raphael of Brooklyn",
+        "St. Tarasius, Archbishop of Constantinople",
+        "St. Kallinikos"
+    ],
+    "02-26": [
+        "St. Photina of Samaria (the Samaritan Woman)",
+        "St. Job of Pochaiv",
+        "St. Juvenalius"
+    ]
+};
+
+// Function to get today's date in MM-DD format
+function getTodayDateKey() {
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    return `${month}-${day}`;
+}
+
+// Function to display current date
+function displayCurrentDate() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const dateStr = now.toLocaleDateString('en-US', options);
+    document.getElementById('current-date').textContent = dateStr;
+}
+
+// Function to get a random item from array
+function getRandomItem(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+// Function to populate verse
+function displayBibleVerse() {
+    const verse = getRandomItem(bibleVerses);
+    document.getElementById('verse-text').textContent = `"${verse.text}"`;
+    document.getElementById('verse-ref').textContent = `— ${verse.reference}`;
+}
+
+// Function to populate church father quote
+function displayChurchFatherQuote() {
+    const quote = getRandomItem(churchFatherQuotes);
+    document.getElementById('quote-text').textContent = `"${quote.text}"`;
+    document.getElementById('quote-author').textContent = `— ${quote.author}`;
+}
+
+// Function to populate saints list
+function displaySaints() {
+    const dateKey = getTodayDateKey();
+    const saints = saintsByDate[dateKey] || ["Check the Orthodox Church calendar for today's saints"];
+    
+    const saintsList = document.getElementById('saints-list');
+    saintsList.innerHTML = '';
+    
+    saints.forEach(saint => {
+        const li = document.createElement('li');
+        li.textContent = saint;
+        saintsList.appendChild(li);
+    });
+}
+
+// Function to refresh all content
+function refreshContent() {
+    displayBibleVerse();
+    displayChurchFatherQuote();
+    displaySaints();
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+    displayCurrentDate();
+    refreshContent();
+    
+    // Add click handler to refresh button
+    document.getElementById('refresh-btn').addEventListener('click', refreshContent);
+});
